@@ -1,5 +1,8 @@
 import { useState } from 'react';
 
+//
+// The Square component encapsulates the button
+//
 function Square({value, onSquareClick})
 {
   //
@@ -10,6 +13,10 @@ function Square({value, onSquareClick})
   return (<button className="square" onClick = {onSquareClick}>{value}</button>);
 }
 
+//
+// The Board component deals with the collection of
+// Squares and runs the game
+//
 export default function Board()
 {
   const [xIsNext, setXIsNext] = useState(true);
@@ -93,7 +100,7 @@ function calculateWinner(squares)
   const lines = 
   [
     //
-    // These are the 8 possible winning combination of squarew
+    // These are the 8 possible winning combination of squares
     //
     [0, 1, 2],
     [3, 4, 5],
