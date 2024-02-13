@@ -14,14 +14,10 @@ function Square({value, onSquareClick})
 }
 
 //
-// The Board component deals with the collection of
-// Squares and runs the game
+// The Board component deals with the collection of Squares
 //
-export default function Board()
+function Board({ xIsNext, squares, onPlay })
 {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [squares, setSquares] = useState(Array(9).fill(null));
-  
   function handleClick(i)
   {
     //
@@ -55,8 +51,13 @@ export default function Board()
     {
       nextSquares[i] = "O";
     }
-    setSquares(nextSquares);
-    setXIsNext(!xIsNext);
+
+    //
+    // onPlay is an alias for handlePlay which
+    // updates the history ahd toggles the next
+    // player
+    //
+    onPlay(nextSquares);
   } 
 
   //
@@ -92,6 +93,31 @@ export default function Board()
         <Square value = {squares[8]} onSquareClick={() => handleClick(8)} />
       </div>
     </>
+  );
+}
+
+export default function Game()
+{
+  const [xIsNext, setXIsNext] = useState(true);
+  const [history, setHistory] = useState([Array(9).fill(null)]);
+
+  const currentSquares = history[history.length - 1];
+
+  function handlePlay(nextSquares)
+  {
+    setHistory([...history, nextSquares]);
+    setXIsNext(!xIsNext);
+  }
+
+  return (
+    <div className = "game">
+      <div className = "game-board">
+        <Board xIsNext = {xIsNext} squares = {currentSquares} onPlay = {handlePlay} />
+      </div>
+      <div className = "game-info">
+        <ol>{/*TODO*/}</ol>
+      </div>
+    </div>
   );
 }
 
