@@ -5,11 +5,6 @@ import { useState } from 'react';
 //
 function Square({value, onSquareClick})
 {
-  //
-  // In the following line the [value, setValue] pair indicate (by default) a state
-  // variable ('value') and a setter ('setValue'). The Click handler uses
-  // the setter to set the value of the state variable
-  //
   return (<button className="square" onClick = {onSquareClick}>{value}</button>);
 }
 
@@ -98,6 +93,11 @@ function Board({ xIsNext, squares, onPlay })
 
 export default function Game()
 {
+  //
+  // In the following lines the [value, setValue] pair indicate (by default) a state
+  // variable ('value') and a setter ('setValue'). useState sets the initial value
+  // of the state
+  //
   const [xIsNext, setXIsNext] = useState(true);
   const [history, setHistory] = useState([Array(9).fill(null)]);
 
