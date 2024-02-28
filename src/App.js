@@ -18,15 +18,15 @@ function Board({ xIsNext, squares, onPlay })
     //
     // Check for a winner
     //
-    //if (squares[i] || calculateWinner(squares))
-    //{
+    if (squares[i] || calculateWinner(squares))
+    {
       //
       // Return if square is occupied or if there is a winner
       // Here, an empty square
       // has a value of null == false and a filled square is non-null == true
       //
-    //  return;
-    //}
+      return;
+    }
 
     //
     // Make a copoy of the squares array so that we don't modify
