@@ -11,8 +11,6 @@ function Square({value, onSquareClick})
 //
 // The Board component deals with the collection of Squares
 //
-//
-//
 function Board({ xIsNext, squares, onPlay })
 {
   function handleClick(i)
