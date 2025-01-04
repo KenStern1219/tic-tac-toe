@@ -22,8 +22,8 @@ function Board({ xIsNext, squares, onPlay })
     {
       //
       // Return if square is occupied or if there is a winner
-      // Here, an empty square
-      // has a value of null == false and a filled square is non-null == true
+      // Here, an empty square has a value of null == false 
+      // and a filled square is non-null == true
       //
       return;
     }
