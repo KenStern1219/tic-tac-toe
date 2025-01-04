@@ -40,7 +40,7 @@ function Board({ xIsNext, squares, onPlay })
     //
     if (xIsNext)
     {
-      nextSquares[i] = "X";
+      nextSquares[i] = "Y";
     }
     else
     {
